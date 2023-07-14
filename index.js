@@ -351,6 +351,139 @@ let movies = [
     },
 ];
 
+
+//POST
+//create new user
+app.post('/users', (req, res) => {
+    const newUser = req.body;
+    let user = users.find( user => user.username === newUser.username);
+    if (user) {
+        res.status(400).send(req.body.username + ' already exists');
+    }
+    else {
+        if (newUser.username) {
+            newUser.id = uuid.v4();
+            newUser.password = req.body.password;
+            newUser.email = req.body.email;
+            newUser.favouriteMovies = req.body.favouriteMovies;
+            users.push(newUser);
+            res.status(201).json(newUser);
+        } else {
+            res.status(400).send('Username is mandatory');
+        }
+    }
+});
+
+//Add a movie to the user's favourites
+app.post('/users/:id/:Title', (req, res) => {
+    const { id, Title } = req.params;
+    let user = users.find( user => user.id == id );
+    if (user) {
+        user.favouriteMovies.push(Title);
+        res.status(200).send(`${Title} has been added to user ${id}'s array`);
+    } else {
+        res.status(400).send('User not found.');
+    }
+});
+
+//Delete
+//Delete a movie from the user's favourites
+app.delete('/users/:id/:Title', (req, res) => {
+    const { id, Title } = req.params;
+    let user = users.find( user => user.id == id );
+    if (user) {
+        user.favouriteMovies = user.favouriteMovies.filter(title => title !== Title);
+        res.status(200).send(`${Title} has been removed from user ${id}'s array`);
+    } else {
+        res.status(400).send('User not found.');
+    }
+});
+
+//Delete a movie from the user's favourites
+app.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
+    let user = users.find( user => user.id == id );
+    if (user) {
+        users = users.filter(user => user.id != id);
+        res.json(users);
+        //res.status(200).send(`user ${id} has been deleted`);
+    } else {
+        res.status(400).send('User not found.');
+    }
+});
+
+//PUT
+//Update user's username
+app.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedUser = req.body;
+
+    let user = users.find( user => user.id == id );
+
+    if (user) {
+        user.username = updatedUser.username;
+        res.status(200).json(user);
+    } else {
+        res.status(400).send('User not found');
+    }
+});
+
+//GET
+//documentation
+app.get('/documentation', (req, res) => {
+    res.sendFile('public/documentation.html', { root: __dirname });
+});
+
+//GET route located at the endpoint “/” that returns a default textual response
+app.get('/', (req, res) => {
+    res.send('Grab popcorn');
+});
+
+//Express GET route located at the endpoint “/movies” that returns a JSON object containing data about all the movies of the user
+app.get('/movies', (req, res) => {
+    res.status(200).json(movies);
+});
+
+//Return data about a single movie by Title
+app.get('/movies/:Title', (req, res) => {
+    const { Title } = req.params;
+    const movie = movies.find((movie) => movie.Title === Title);
+
+    if (movie) {
+        res.status(200).json(movie);
+    } else {
+        res.status(400).send('Movie not found.');
+    }
+});
+
+//Return data about a genre by name
+app.get('/movies/genre/:genreName', (req, res) => {
+    const { genreName } = req.params;
+    const genre = movies
+        .find((movie) => movie.Genres.some(genre => genre.Name === genreName)).Genres.find( genre => genre.Name === genreName);
+
+    if (genre) {
+        
+        res.status(200).json(genre);
+    } else {
+        res.status(400).send('Genre not found');
+    }
+});
+
+//Return data about a director by name
+app.get('/movies/directors/:directorName', (req, res) => {
+    const { directorName } = req.params;
+    const director = movies
+        .find((movie) =>
+            movie.Directors.some((director) => director.Name === directorName)).Directors.find((director) => director.Name === directorName);
+    if (director) {
+        res.status(200).json(director);
+    } else {
+        res.status(400).send('Director not found');
+    }
+});
+
+
 //serves file from the public folder
 app.use(express.static('public'));
 
