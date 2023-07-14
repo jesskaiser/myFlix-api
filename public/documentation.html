@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <title>myFlix API - Documentation</title>
     </head>
     <body>
@@ -12,5 +13,99 @@
 application provides users with access to information about different movies,
 directors, and genres. Users will be able to sign up, update their personal
 information, and create a list of their favorite movies</p>
+<table>
+    <h2>URL endpoints and request methods</h2>
+      <thead>
+        <tr>
+          <th>Business Logic / Request</th>
+          <th>URL</th>
+          <th>HTTP Method</th>
+          <th>Request Body Data Format</th>
+          <th>Response Body Data Format</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Add a user</td>
+          <td>/users</td>
+          <td>POST</td>
+          <td>A JSON object holding data about the user to add, structured like: <span><br>{<br>username: "",<br> password: "", <br> email: ""<br>}</span></td>
+          <td>A JSON object holding data about the user that was added, including an ID: <span><br>{<br>id: "", <br>username: "",<br> password: "",<br>email: "",<br>Favorite Movies: []<br>}</span></td>
+        </tr>
+
+        <tr>
+          <td>Change a user's username</td>
+          <td>/users/[Username]</td>
+          <td>PUT</td>
+          <td>None</td>
+          <td>A text message indicating the username was updated</td>
+        </tr>
+
+        <tr>
+            <td>Return data about a user</td>
+            <td>/users/[ID]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>a JSON object holding data about the user, structured like: <span><br>{<br>id: "", <br>username: "",<br> password: "",<br>email: "",<br>Favorite Movies: []<br>}</span></td>
+        </tr>
+
+        <tr>
+          <td>Add a movie to the user's favorites</td>
+          <td>/users/[ID]/[Title]</td>
+          <td>POST</td>
+          <td>None</td>
+          <td>Text message indicating the movie has been added to the user's list</td>
+        </tr>
+
+        <tr>
+          <td>Remove a movie from the user's favorites by title</td>
+          <td>/users/[ID]/[Title]</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>Text message indicating the movie has been removed from the user's list</td>
+        </tr>
+
+        <tr>
+          <td>Delete a user by ID</td>
+          <td>/users/[ID]</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>Text showing that the user email has been removed</td>
+        </tr>
+
+        <tr>
+          <td>Return a list of all movies of the user</td>
+          <td>/movies</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about all the movies, structured like: <span><br>{<br>id: "", <br>username: "",<br>Favorite Movies: []<br>}</span></td>
+        </tr>
+
+        <tr>
+          <td>Return data about single movie by title</td>
+          <td>/movies/[Movie]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about a single movie, structured like: <span><br>{<br>title: "",<br>imageURL: "",<br>genres: [],<br> directors: [], <br>featured: y/n, <br>description: ""<br>}</span></td>
+        </tr>
+
+        <tr>
+          <td>Return data about a genre by name</td>
+          <td>/movies/genres/[Genre]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about a specific genre</td>
+        </tr>
+
+        <tr>
+          <td>Return data about a director by name</td>
+          <td>/movies/directors/[Director]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about a specific director. structured like: <span><br>{<br>name:"", <br>bio:"",<br>birth:""<br>}</span></td>
+        </tr>
+      </tbody>
+    </table>
     </body>
 </html>
