@@ -1,0 +1,51 @@
+body{
+  min-width: 800px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(46, 46, 52);
+  color: white;
+}
+
+p{
+  padding: 20px;
+  margin: 10px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  padding: 10px;
+  font-size: xx-large;
+}
+
+h2 {
+  padding: 20px;
+  font-size: x-large;
+}
+
+td {
+  border: 2px solid;
+}
+
+table {
+  margin: 25px;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+thead {
+  text-align: center;
+  font-size: large;
+  color: rgb(249, 219, 191);
+ 
+}
+
+td {
+   padding: 10px;
+}
+
+span {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(176, 224, 250);
+}
