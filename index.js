@@ -24,14 +24,14 @@ let users = [
         username: 'bob',
         password: 'password',
         email: 'Bob@gmail.com',
-        favouriteMovies: ['The Matrix']
+        favouriteMovies: ['The Matrix', 'Inception']
     },
     {
         id: 2,
         username: 'mark',
         password: 'password',
         email: 'mark@gmail.com',
-        favouriteMovies: []
+        favouriteMovies: ['Trainspotting']
     },
 ];
 
@@ -44,11 +44,6 @@ let movies = [
         Year: '1999',
         Genres: [
             {
-                Name: 'Action',
-                Description:
-                    'Action fiction is a form of genre fiction whose subject matter is characterized by emphasis on exciting action sequences.',
-            },
-            {
                 Name: 'Sci-fi',
                 Description:
                     'Science fiction (sometimes shortened to sf or sci-fi) is a genre of speculative fiction, which typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life.',
@@ -56,16 +51,10 @@ let movies = [
         ],
         Directors: [
             {
-                Name: 'Lana Wachowski',
+                Name: 'Wachowskis',
                 Dob: '21/06/1965',
                 Death: '-',
                 Bio: 'Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind such ground-breaking movies as The Matrix (1999) and Cloud Atlas (2012).',
-            },
-            {
-                Name: 'Lilly Wachowski',
-                Dob: '29/12/1967',
-                Death: '-',
-                Bio: 'Lilly teamed up with her older sibling, Lana Wachowski, and began working on films. Their first script was optioned and formed the basis for the film Assassins (1995).',
             },
         ],
         Featured: true,
@@ -79,25 +68,15 @@ let movies = [
         Year: '2010',
         Genres: [
             {
-                Name: 'Action',
-                Description:
-                    'Action fiction is a form of genre fiction whose subject matter is characterized by emphasis on exciting action sequences.',
-            },
-            {
                 Name: 'Adventure',
                 Description:
                     'Adventure fiction is a type of fiction that usually presents danger, or gives the reader a sense of excitement.',
-            },
-            {
-                Name: 'Sci-Fi',
-                Description:
-                    'Science fiction (sometimes shortened to sf or sci-fi) is a genre of speculative fiction, which typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life.',
             },
         ],
         Directors: [
             {
                 Name: 'Christopher Nolan',
-                Dob: '30//07/1970',
+                Dob: '30/07/1970',
                 Death: '-',
                 Bio: 'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England.',
             },
@@ -112,16 +91,6 @@ let movies = [
             'https://m.media-amazon.com/images/M/MV5BOWY1OWI1MmUtNjAxYy00MmRiLWI4YWItYjNjMmU4Yzc3M2QxXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg',
         Year: '1997',
         Genres: [
-            {
-                Name: 'Comedy',
-                Description:
-                    'A comedy film is a category of film which emphasizes on humor. ',
-            },
-            {
-                Name: 'Drama',
-                Description:
-                    'In film and television, drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.',
-            },
             {
                 Name: 'Romance',
                 Description:
@@ -146,16 +115,6 @@ let movies = [
             'https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
         Year: '1985',
         Genres: [
-            {
-                Name: 'Adventure',
-                Description:
-                    'Adventure fiction is a type of fiction that usually presents danger, or gives the reader a sense of excitement.',
-            },
-            {
-                Name: 'Comedy',
-                Description:
-                    'A comedy film is a category of film which emphasizes on humor. ',
-            },
             {
                 Name: 'Sci-Fi',
                 Description:
@@ -185,16 +144,11 @@ let movies = [
                 Description:
                     'Films of this genre generally involve various aspects of crime and its detection. ',
             },
-            {
-                Name: 'Drama',
-                Description:
-                    'In film and television, drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.',
-            },
         ],
         Directors: [
             {
                 Name: 'Tony Kaye',
-                Dob: '1952',
+                Dob: '08/07/1952',
                 Death: '-',
                 Bio: 'Kaye is a six time Grammy nominated music video director from London.',
             },
@@ -238,11 +192,6 @@ let movies = [
                 Description:
                     'A comedy film is a category of film which emphasizes on humor. ',
             },
-            {
-                Name: 'Drama',
-                Description:
-                    'In film and television, drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.',
-            },
         ],
         Directors: [
             {
@@ -263,16 +212,6 @@ let movies = [
         Year: '2003',
         Genres: [
             {
-                Name: 'Action',
-                Description:
-                    'Action fiction is a form of genre fiction whose subject matter is characterized by emphasis on exciting action sequences.',
-            },
-            {
-                Name: 'Crime',
-                Description:
-                    'Films of this genre generally involve various aspects of crime and its detection. ',
-            },
-            {
                 Name: 'Thriller',
                 Description:
                     'Thrillers are characterized and defined by the moods they elicit, giving their audiences heightened feelings of suspense, excitement, surprise, anticipation and anxiety.',
@@ -288,7 +227,7 @@ let movies = [
         ],
         Featured: true,
         Description:
-            'After awakening from a four    Year coma, a former assassin wreaks vengeance on the team of assassins who betrayed her.',
+            'After awakening from a four year coma, a former assassin wreaks vengeance on the team of assassins who betrayed her.',
     },
     {
         Title: 'The Green Mile',
@@ -296,11 +235,6 @@ let movies = [
             'https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_.jpg',
         Year: '1999',
         Genres: [
-            {
-                Name: 'Crime',
-                Description:
-                    'Films of this genre generally involve various aspects of crime and its detection. ',
-            },
             {
                 Name: 'Drama',
                 Description:
@@ -331,11 +265,6 @@ let movies = [
                 Description:
                     'A comedy film is a category of film which emphasizes on humor. ',
             },
-            {
-                Name: 'Crime',
-                Description:
-                    'Films of this genre generally involve various aspects of crime and its detection. ',
-            },
         ],
         Directors: [
             {
@@ -348,6 +277,30 @@ let movies = [
         Featured: true,
         Description:
             'Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.',
+    },
+    {
+        Title: 'The Gentlemen',
+        ImageURL:
+            'https://m.media-amazon.com/images/M/MV5BZmQyZDBjNjMtMjIzOS00MTMyLWJmZWMtN2IxMWFmYjg0MDlhXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_QL75_UY281_CR27,0,190,281_.jpg',
+        Year: '2019',
+        Genres: [
+            {
+                Name: 'Action',
+                Description:
+                    'Action fiction is a form of genre fiction whose subject matter is characterized by emphasis on exciting action sequences.',
+            },
+        ],
+        Directors: [
+            {
+                Name: 'Guy Ritchie',
+                Dob: '10/09/1968',
+                Death: '-',
+                Bio: 'Guy Ritchie was born in Hatfield, Hertfordshire, UK on September 10, 1968. After watching Butch Cassidy and the Sundance Kid (1969) as a child, Guy realized that what he wanted to do was make films.',
+            },
+        ],
+        Featured: true,
+        Description:
+            'An American expat tries to sell off his highly profitable marijuana empire in London, triggering plots, schemes, bribery and blackmail in an attempt to steal his domain out from under him.',
     },
 ];
 

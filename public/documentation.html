@@ -1,111 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
         <title>myFlix API - Documentation</title>
     </head>
     <body>
         <h1>Documentation Page</h1>
         <h2>Introduction</h2>
-        <p>The API is the server-side component of a “movies” web application. The web
-application provides users with access to information about different movies,
-directors, and genres. Users will be able to sign up, update their personal
-information, and create a list of their favorite movies</p>
-<table>
-    <h2>URL endpoints and request methods</h2>
-      <thead>
-        <tr>
-          <th>Business Logic / Request</th>
-          <th>URL</th>
-          <th>HTTP Method</th>
-          <th>Request Body Data Format</th>
-          <th>Response Body Data Format</th>
-        </tr>
-      </thead>
+        <p>
+            The API is the server-side component of a “movies” web application.
+            The web application provides users with access to information about
+            different movies, directors, and genres. Users will be able to sign
+            up, update their personal information, and create a list of their
+            favorite movies
+        </p>
+        <table>
+            <h2>URL endpoints and request methods</h2>
+            <thead>
+                <tr>
+                    <th>Business Logic / Request</th>
+                    <th>URL</th>
+                    <th>HTTP Method</th>
+                    <th>Request Body Data Format</th>
+                    <th>Response Body Data Format</th>
+                </tr>
+            </thead>
 
-      <tbody>
-        <tr>
-          <td>Add a user</td>
-          <td>/users</td>
-          <td>POST</td>
-          <td>A JSON object holding data about the user to add, structured like: <span><br>{<br>username: "",<br> password: "", <br> email: ""<br>}</span></td>
-          <td>A JSON object holding data about the user that was added, including an ID: <span><br>{<br>id: "", <br>username: "",<br> password: "",<br>email: "",<br>Favorite Movies: []<br>}</span></td>
-        </tr>
+            <tbody>
+                <tr>
+                    <td>Add a user</td>
+                    <td>/users</td>
+                    <td>POST</td>
+                    <td>
+                        A JSON object holding data about the user to add,
+                        structured like:
+                        <span
+                            ><br />{<br />username: "",<br />
+                            password: "", <br />
+                            email: ""<br />}</span
+                        >
+                    </td>
+                    <td>
+                        A JSON object holding data about the user that was
+                        added, including an ID:
+                        <span
+                            ><br />{<br />id: "", <br />username: "",<br />
+                            password: "",<br />email: "",<br />Favorite Movies:
+                            []<br />}</span
+                        >
+                    </td>
+                </tr>
 
-        <tr>
-          <td>Change a user's username</td>
-          <td>/users/[Username]</td>
-          <td>PUT</td>
-          <td>None</td>
-          <td>A text message indicating the username was updated</td>
-        </tr>
+                <tr>
+                    <td>Change a user's username</td>
+                    <td>/users/[Username]</td>
+                    <td>PUT</td>
+                    <td>None</td>
+                    <td>A text message indicating the username was updated</td>
+                </tr>
 
-        <tr>
-            <td>Return data about a user</td>
-            <td>/users/[ID]</td>
-            <td>GET</td>
-            <td>None</td>
-            <td>a JSON object holding data about the user, structured like: <span><br>{<br>id: "", <br>username: "",<br> password: "",<br>email: "",<br>Favorite Movies: []<br>}</span></td>
-        </tr>
+                <tr>
+                    <td>Return data about a user</td>
+                    <td>/users/[ID]</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>
+                        a JSON object holding data about the user, structured
+                        like:
+                        <span
+                            ><br />{<br />id: "", <br />username: "",<br />
+                            password: "",<br />email: "",<br />Favorite Movies:
+                            []<br />}</span
+                        >
+                    </td>
+                </tr>
 
-        <tr>
-          <td>Add a movie to the user's favorites</td>
-          <td>/users/[ID]/[Title]</td>
-          <td>POST</td>
-          <td>None</td>
-          <td>Text message indicating the movie has been added to the user's list</td>
-        </tr>
+                <tr>
+                    <td>Add a movie to the user's favorites</td>
+                    <td>/users/[ID]/[Title]</td>
+                    <td>POST</td>
+                    <td>None</td>
+                    <td>
+                        Text message indicating the movie has been added to the
+                        user's list
+                    </td>
+                </tr>
 
-        <tr>
-          <td>Remove a movie from the user's favorites by title</td>
-          <td>/users/[ID]/[Title]</td>
-          <td>DELETE</td>
-          <td>None</td>
-          <td>Text message indicating the movie has been removed from the user's list</td>
-        </tr>
+                <tr>
+                    <td>Remove a movie from the user's favorites by title</td>
+                    <td>/users/[ID]/[Title]</td>
+                    <td>DELETE</td>
+                    <td>None</td>
+                    <td>
+                        Text message indicating the movie has been removed from
+                        the user's list
+                    </td>
+                </tr>
 
-        <tr>
-          <td>Delete a user by ID</td>
-          <td>/users/[ID]</td>
-          <td>DELETE</td>
-          <td>None</td>
-          <td>Text showing that the user email has been removed</td>
-        </tr>
+                <tr>
+                    <td>Delete a user by ID</td>
+                    <td>/users/[ID]</td>
+                    <td>DELETE</td>
+                    <td>None</td>
+                    <td>Text showing that the user email has been removed</td>
+                </tr>
 
-        <tr>
-          <td>Return a list of all movies of the user</td>
-          <td>/movies</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about all the movies, structured like: <span><br>{<br>id: "", <br>username: "",<br>Favorite Movies: []<br>}</span></td>
-        </tr>
+                <tr>
+                    <td>Return a list of all movies of the user</td>
+                    <td>/movies</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>
+                        A JSON object holding data about all the movies,
+                        structured like:
+                        <span
+                            ><br />{<br />id: "", <br />username: "",<br />Favorite
+                            Movies: []<br />}</span
+                        >
+                    </td>
+                </tr>
 
-        <tr>
-          <td>Return data about single movie by title</td>
-          <td>/movies/[Movie]</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about a single movie, structured like: <span><br>{<br>title: "",<br>imageURL: "",<br>genres: [],<br> directors: [], <br>featured: y/n, <br>description: ""<br>}</span></td>
-        </tr>
+                <tr>
+                    <td>Return data about single movie by title</td>
+                    <td>/movies/[Movie]</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>
+                        A JSON object holding data about a single movie,
+                        structured like:
+                        <span
+                            ><br />{<br />title: "",<br />imageURL: "",<br />genres:
+                            [],<br />
+                            directors: [], <br />featured: y/n,
+                            <br />description: ""<br />}</span
+                        >
+                    </td>
+                </tr>
 
-        <tr>
-          <td>Return data about a genre by name</td>
-          <td>/movies/genres/[Genre]</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about a specific genre</td>
-        </tr>
+                <tr>
+                    <td>Return data about a genre by name</td>
+                    <td>/movies/genres/[Genre]</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>A JSON object holding data about a specific genre</td>
+                </tr>
 
-        <tr>
-          <td>Return data about a director by name</td>
-          <td>/movies/directors/[Director]</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about a specific director. structured like: <span><br>{<br>name:"", <br>bio:"",<br>birth:""<br>}</span></td>
-        </tr>
-      </tbody>
-    </table>
+                <tr>
+                    <td>Return data about a director by name</td>
+                    <td>/movies/directors/[Director]</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>
+                        A JSON object holding data about a specific director.
+                        structured like:
+                        <span
+                            ><br />{<br />name:"",
+                            <br />bio:"",<br />birth:""<br />}</span
+                        >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <h2>Movie Table</h2>
+            <thead>
+                <tr>
+                    <th>MOVIEID</th>
+                    <th>TITLE</th>
+                    <th>DESCRIPTION</th>
+                    <th>GENREID</th>
+                    <th>DIRECTORID</th>
+                    <th>IMAGEPATH</th>
+                    <th>FEATURED</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>The Matrix</td>
+                    <td>
+                        When a beautiful stranger leads computer hacker Neo to a
+                        forbidding underworld, he discovers the shocking
+                        truth--the life he knows is the elaborate deception of
+                        an evil cyber-intelligence.
+                    </td>
+                    <td>7</td>
+                    <td>1</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UY3156_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Inception</td>
+                    <td>
+                        A thief who steals corporate secrets through the use of
+                        dream-sharing technology is given the inverse task of
+                        planting an idea into the mind of a C.E.O., but his
+                        tragic past may doom the project and his team to
+                        disaster.
+                    </td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Life Is Beautiful</td>
+                    <td>
+                        When an open-minded Jewish waiter and his son become
+                        victims of the Holocaust, he uses a perfect mixture of
+                        will, humor and imagination to protect his son from the
+                        dangers around their camp.
+                    </td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BOWY1OWI1MmUtNjAxYy00MmRiLWI4YWItYjNjMmU4Yzc3M2QxXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Back to the Future</td>
+                    <td>
+                        Marty McFly, a 17 Year-old high school student, is
+                        accidentally sent 30 years into the past in a
+                        time-traveling DeLorean invented by his close friend,
+                        the maverick scientist Doc Brown.
+                    </td>
+                    <td>7</td>
+                    <td>4</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>American History X</td>
+                    <td>
+                        Living a life marked by violence, neo-Nazi Derek finally
+                        goes to prison after killing two black youths. Upon his
+                        release, Derek vows to change; he hopes to prevent his
+                        brother, Danny, who idolizes Derek, from following in
+                        his footsteps.
+                    </td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BZTJhN2FkYWEtMGI0My00YWM4LWI2MjAtM2UwNjY4MTI2ZTQyXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Trainspotting</td>
+                    <td>
+                        Renton, deeply immersed in the Edinburgh drug scene,
+                        tries to clean up and get out, despite the allure of the
+                        drugs and influence of friends.
+                    </td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BMzA5Zjc3ZTMtMmU5YS00YTMwLWI4MWUtYTU0YTVmNjVmODZhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>The Truman Show</td>
+                    <td>
+                        An insurance salesman discovers his whole life is
+                        actually a reality TV show.
+                    </td>
+                    <td>3</td>
+                    <td>7</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BMDIzODcyY2EtMmY2MC00ZWVlLTgwMzAtMjQwOWUyNmJjNTYyXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Kill Bill Vol.1</td>
+                    <td>
+                        After awakening from a four year coma, a former assassin
+                        wreaks vengeance on the team of assassins who betrayed
+                        her.
+                    </td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>The Green Mile</td>
+                    <td>
+                        A tale set on Death row in a Southern jail, where gentle
+                        giant John possesses the mysterious power to heal
+                        people's ailments. When the lead guard, Paul, recognizes
+                        John's gift, he tries to help stave off the condemned
+                        man's execution.
+                    </td>
+                    <td>9</td>
+                    <td>5</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Snatch</td>
+                    <td>
+                        Unscrupulous boxing promoters, violent bookmakers, a
+                        Russian gangster, incompetent amateur robbers and
+                        supposedly Jewish jewelers fight to track down a
+                        priceless stolen diamond.
+                    </td>
+                    <td>3</td>
+                    <td>10</td>
+                    <td>
+                        https://m.media-amazon.com/images/M/MV5BMTA2NDYxOGYtYjU1Mi00Y2QzLTgxMTQtMWI1MGI0ZGQ5MmU4XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>The Gentlemen</td>
+                    <td>
+                        An American expat tries to sell off his highly
+                        profitable marijuana empire in London, triggering plots,
+                        schemes, bribery and blackmail in an attempt to steal
+                        his domain out from under him.
+                    </td>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>
+                        'https://m.media-amazon.com/images/M/MV5BZmQyZDBjNjMtMjIzOS00MTMyLWJmZWMtN2IxMWFmYjg0MDlhXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_QL75_UY281_CR27,0,190,281_.jpg',
+                    </td>
+                    <td>TRUE</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <h2>Genre Table</h2>
+            <thead>
+                <tr>
+                    <th>GENREID</th>
+                    <th>NAME</th>
+                    <th>DESCRIPTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Action</td>
+                    <td>
+                        Action fiction is a form of genre fiction whose subject
+                        matter is characterized by emphasis on exciting action
+                        sequences.
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Adventure</td>
+                    <td>
+                        Adventure fiction is a type of fiction that usually
+                        presents danger, or gives the reader a sense of
+                        excitement.
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Comedy</td>
+                    <td>
+                        A comedy film is a category of film which emphasizes on
+                        humor.
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Crime</td>
+                    <td>
+                        Films of this genre generally involve various aspects of
+                        crime and its detection.
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Drama</td>
+                    <td>
+                        In film and television, drama is a category or genre of
+                        narrative fiction (or semi-fiction) intended to be more
+                        serious than humorous in tone.
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Romance</td>
+                    <td>
+                        Romance films involve romantic love stories recorded in
+                        visual media for broadcast in theatres or on television
+                        that focus on passion, emotion, and the affectionate
+                        romantic involvement of the main characters.
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Sci-Fi</td>
+                    <td>
+                        Science fiction (sometimes shortened to sf or sci-fi) is
+                        a genre of speculative fiction, which typically deals
+                        with imaginative and futuristic concepts such as
+                        advanced science and technology, space exploration, time
+                        travel, parallel universes, and extraterrestrial life.
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Thriller</td>
+                    <td>
+                        Thrillers are characterized and defined by the moods
+                        they elicit, giving their audiences heightened feelings
+                        of suspense, excitement, surprise, anticipation and
+                        anxiety.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <h2>Director Table</h2>
+            <thead>
+                <tr>
+                    <th>DIRECTORID</th>
+                    <th>NAME</th>
+                    <th>BIO</th>
+                    <th>BIRTHYEAR</th>
+                    <th>DEATHYEAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Wachowskis</td>
+                    <td>
+                        Lana Wachowski and her sister Lilly Wachowski, also
+                        known as the Wachowskis, are the duo behind such
+                        ground-breaking movies as The Matrix (1999) and Cloud
+                        Atlas (2012).
+                    </td>
+                    <td>1965-06-21</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Christopher Nolan</td>
+                    <td>
+                        Best known for his cerebral, often nonlinear,
+                        storytelling, acclaimed writer-director Christopher
+                        Nolan was born on July 30, 1970, in London, England.
+                    </td>
+                    <td>1970-07-30</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Roberto Benigni</td>
+                    <td>
+                        Roberto Benigni was born on October 27, 1952 in Manciano
+                        La Misericordia, Castiglion Fiorentino, Tuscany, Italy.
+                    </td>
+                    <td>1952-10-27</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Robert Zemeckis</td>
+                    <td>
+                        A whiz-kid with special effects, Robert is from the
+                        Spielberg camp of film-making (Steven Spielberg produced
+                        many of his films).
+                    </td>
+                    <td>1952-05-14</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Tony Kaye</td>
+                    <td>
+                        Kaye is a six time Grammy nominated music video director
+                        from London.
+                    </td>
+                    <td>1952-07-08</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Danny Boyle</td>
+                    <td>
+                        Daniel Francis Boyle is a British filmmaker, producer
+                        and writer from Radcliffe, Greater Manchester.
+                    </td>
+                    <td>1956-10-20</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Peter Weir</td>
+                    <td>
+                        Peter Weir was born on August 21, 1944 in Sydney, New
+                        South Wales, Australia.
+                    </td>
+                    <td>1944-08-21</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Quentin Tarantino</td>
+                    <td>
+                        Quentin Jerome Tarantino was born in Knoxville,
+                        Tennessee.
+                    </td>
+                    <td>1963-03-27</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Frank Darabont</td>
+                    <td>
+                        Three-time Oscar nominee Frank Darabont was born in a
+                        refugee camp in 1959 in Montbeliard, France, the son of
+                        Hungarian parents who had fled Budapest during the
+                        failed 1956 Hungarian revolution.
+                    </td>
+                    <td>1959-01-28</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Guy Ritchie</td>
+                    <td>
+                        Guy Ritchie was born in Hatfield, Hertfordshire, UK on
+                        September 10, 1968. After watching Butch Cassidy and the
+                        Sundance Kid (1969) as a child, Guy realized that what
+                        he wanted to do was make films.
+                    </td>
+                    <td>1968-09-10</td>
+                    <td>--</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <h2>Users Table</h2>
+            <thead>
+                <tr>
+                    <th>USERID</th>
+                    <th>USERNAME</th>
+                    <th>PASSWORD</th>
+                    <th>EMAIL</th>
+                    <th>BIRTHDATE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>bob</td>
+                    <td>password</td>
+                    <td>bob@gmail.com</td>
+                    <td>1991-01-01</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>mark</td>
+                    <td>password</td>
+                    <td>mark@gmail.com</td>
+                    <td>1999-09-13</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <h2>Users-Movies Table</h2>
+            <thead>
+                <tr>
+                    <th>USERMOVIEID</th>
+                    <th>USERID</th>
+                    <th>MOVIEID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
