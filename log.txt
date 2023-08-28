@@ -176,3 +176,5 @@
 ::1 - - [28/Aug/2023:00:26:06 +0000] "GET /styles.css HTTP/1.1" 304 - "http://localhost:8080/documentation.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
 ::1 - - [28/Aug/2023:00:49:34 +0000] "GET /documentation.html HTTP/1.1" 200 24438 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
 ::1 - - [28/Aug/2023:00:49:34 +0000] "GET /styles.css HTTP/1.1" 304 - "http://localhost:8080/documentation.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [28/Aug/2023:01:52:06 +0000] "GET /documentation.html HTTP/1.1" 200 24923 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [28/Aug/2023:01:52:06 +0000] "GET /styles.css HTTP/1.1" 304 - "http://localhost:8080/documentation.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
